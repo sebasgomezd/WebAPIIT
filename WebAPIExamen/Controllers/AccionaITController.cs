@@ -42,7 +42,7 @@ namespace WebAPIExamen.Controllers
             if (provincia is null)
             {
                 log.Error("provincia Null");
-                return new string[] { "Formato del Json incorrecto" };
+                return new string[] { "Formato del Json incorrecto es necesario un Nombre de provincia" };
             }
 
             HttpClient httpClient = new HttpClient();
