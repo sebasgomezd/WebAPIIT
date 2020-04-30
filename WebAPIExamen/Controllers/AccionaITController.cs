@@ -39,6 +39,12 @@ namespace WebAPIExamen.Controllers
         [HttpGet]
         public async Task<IEnumerable<string>> ObtenerLatYLong(InputProv provincia)
         {
+            if (provincia is null)
+            {
+                log.Error("provincia Null");
+                return new string[] { "Formato del Json incorrecto" };
+            }
+
             HttpClient httpClient = new HttpClient();
             var json =await httpClient.GetStringAsync(string.Format("https://apis.datos.gob.ar/georef/api/provincias?nombre={0}", provincia.Nombre));
             
